@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Registro de Usuarios</title>
+    <link type="text/css"rel="stylesheet" href="css/estilologin.css">
 </head>
  
 <body>
@@ -28,30 +29,17 @@
         }
     } else {
 ?>
-        <p><font size="+2">Registro</font></p>
+        
         <form name="form1" method="post" action="">
-            <table width="75%" border="0">
-                <tr> 
-                    <td width="10%">Nombres</td>
-                    <td><input type="text" name="name"></td>
-                </tr>
-                <tr> 
-                    <td>Email</td>
-                    <td><input type="text" name="email"></td>
-                </tr>            
-                <tr> 
-                    <td>Nombre de Usuario</td>
-                    <td><input type="text" name="username"></td>
-                </tr>
-                <tr> 
-                    <td>Clave de usuario</td>
-                    <td><input type="password" name="password"></td>
-                </tr>
-                <tr> 
-                    <td>&nbsp;</td>
-                    <td><input type="submit" name="submit" value="Submit"></td>
-                </tr>
-            </table>
+            <div class="box">       
+                <h1>Registo de Usuarios</h1>             
+                <input type="text" name="name" placeholder="Inserte nombre" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
+                <input type="text" name="email" placeholder="Inserte correo electrónico" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
+                <input type="text" name="username" placeholder="Inserte nombre de Usuario" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
+                <input type="password" name="password" placeholder="Inserte una Clave" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
+                
+                <input type="submit" class="btn" name="submit" value="Registrar">
+            </div>
         </form>
     <?php
     }
