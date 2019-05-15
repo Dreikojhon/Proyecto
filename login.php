@@ -2,10 +2,9 @@
 <html>
 <head>
     <title>Ingreso</title>
+    <link type="text/css" rel="stylesheet" href="css/estilologin.css">
 </head>
- 
 <body>
-<a href="index.php">Principal</a> <br />
 <?php
 include("connection.php");
  
@@ -40,25 +39,19 @@ if(isset($_POST['submit'])) {
     }
 } else {
 ?>
-    <p><font size="+2">Ingreso</font></p>
+    
     <form name="form1" method="post" action="">
-        <table width="75%" border="0">
-            <tr> 
-                <td width="10%">Nombre de usuario</td>
-                <td><input type="text" name="username"></td>
-            </tr>
-            <tr> 
-                <td>Clave de ingreso</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr> 
-                <td>&nbsp;</td>
-                <td><input type="submit" name="submit" value="Submit"></td>
-            </tr>
-        </table>
+        <div class="box">
+            <h1><font size="+2">Ingreso</font></h1>
+                <input type="text" name="username" placeholder="Nombre de Usuario" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
+                <input type="password" name="password" placeholder="Clave" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
+                
+                <input type="submit" class="btn" name="submit" value="Ingresar">
+        </div>
     </form>
 <?php
 }
 ?>
+<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
