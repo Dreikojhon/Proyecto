@@ -5,6 +5,7 @@
     <link type="text/css" rel="stylesheet" href="css/estilologin.css">
 </head>
 <body>
+<a href="index.php">Principal</a>
 <?php
 include("connection.php");
  
@@ -42,7 +43,7 @@ if(isset($_POST['submit'])) {
     
     <form name="form1" method="post" action="">
         <div class="box">
-            <h1><font size="+2">Ingreso</font></h1>
+                <h1>Ingreso</h1>
                 <input type="text" name="username" placeholder="Nombre de Usuario" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
                 <input type="password" name="password" placeholder="Clave" onfocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email">
                 

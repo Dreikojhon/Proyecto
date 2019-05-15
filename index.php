@@ -4,26 +4,25 @@
     <title>APP WEB</title>
     <link href="css/style.css" rel="stylesheet" >
 </head>
- 
 <body>
-    <div id="header">
-        <b>Principal</b><br>
+    <div class="header">
+    <a href="index.php" class="logo">APP WEB</a>
+    <div class="menu">
     <?php
     if(isset($_SESSION['valid'])) {            
         include("connection.php");                    
         $result = mysqli_query($mysqli, "SELECT * FROM login");
     ?>                
-        
-        <b>Bienvenido: <?php echo $_SESSION['name'] ?> ! <a href='logout.php'>Cerrar Sesion</a></b><br/>
-        <br/>
+        <p>Bienvenido: <?php echo $_SESSION['name'] ?> ! <a href='logout.php'>Cerrar Sesion</a></p>
         <a href="view.php">CRUD Publicaciones</a>
-        <br/><br/>
     <?php    
     } else {
-        echo "Usted esta como invitado.<br/><br/>";
-        echo "<div id='menu'><a href='login.php'>Ingreso</a><br><a href='register.php'>Registrar</a></div>";
+        echo "<p>Usted esta como invitado, Ingrese o regístrese</p>";
+        echo "<a href='login.php'>Ingreso</a><a href='register.php'>Registrar</a>";
     }
     ?>
     </div>
+    </div>
+
 </body>
 </html>
