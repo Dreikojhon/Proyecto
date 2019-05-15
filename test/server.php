@@ -10,7 +10,13 @@ $errors = array();
 
 //bd
 
-$db = mysqli_connect('localhost','root','','practice') or die ("No se pudo conectar a la BD");
+$db = mysqli_connect(
+    'localhost',
+    'root',
+    '',
+    'practice') or die (
+        "No se pudo conectar a la BD"
+    );
 
 //insertando usuarios
 

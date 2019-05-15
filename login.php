@@ -1,51 +1,64 @@
-<?php
-
-  session_start();
-
-  if (isset($_SESSION['user_id'])) {
-    header('Location: /Proyecto/index.php');
-  }
-  require 'database.php';
-
-  if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');//check
-    $records->bindParam(':email', $_POST['email']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);//
-
-    $message = '';
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
-      $_SESSION['user_id'] = $results['id'];
-      header("Location: /php-login-simple-master/login.php");
-    } else {
-      $message = 'Los datos ingresados no coinciden';
-    }
-  }
-
-?>
-
-<!DOCTYPE html>
+<?php session_start(); ?>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <?php require 'partials/header.php' ?>
-
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
-
-    <h1>Login</h1>
-    <span>or <a href="signup.php">SignUp</a></span>
-
-    <form action="/Proyecto/login.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
-      <input type="submit" value="Ingresar" >
+<head>
+    <title>Ingreso</title>
+</head>
+ 
+<body>
+<a href="index.php">Principal</a> <br />
+<?php
+include("connection.php");
+ 
+if(isset($_POST['submit'])) {
+    $user = mysqli_real_escape_string($mysqli, $_POST['username']);
+    $pass = mysqli_real_escape_string($mysqli, $_POST['password']);
+ 
+    if($user == "" || $pass == "") {
+        echo "Debe rellenar los datos para ingresar.";
+        echo "<br/>";
+        echo "<a href='login.php'>Atras</a>";
+    } else {
+        $result = mysqli_query($mysqli, "SELECT * FROM usuario WHERE username='$user' AND password=md5('$pass')")
+        or die("No se pudo ejecutar el procedimiento.");
+        
+        $row = mysqli_fetch_assoc($result);
+        
+        if(is_array($row) && !empty($row)) {
+            $validuser = $row['username'];
+            $_SESSION['valid'] = $validuser;
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['id'] = $row['id'];
+        } else {
+            echo "Usuario o Clave incorrecta";
+            echo "<br/>";
+            echo "<a href='login.php'>Regresar</a>";
+        }
+ 
+        if(isset($_SESSION['valid'])) {
+            header('Location: index.php');            
+        }
+    }
+} else {
+?>
+    <p><font size="+2">Ingreso</font></p>
+    <form name="form1" method="post" action="">
+        <table width="75%" border="0">
+            <tr> 
+                <td width="10%">Nombre de usuario</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr> 
+                <td>Clave de ingreso</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr> 
+                <td>&nbsp;</td>
+                <td><input type="submit" name="submit" value="Submit"></td>
+            </tr>
+        </table>
     </form>
-  </body>
+<?php
+}
+?>
+</body>
 </html>

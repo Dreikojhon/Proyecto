@@ -1,0 +1,38 @@
+body {
+    margin: 0 0;
+
+}
+ 
+#header {
+    width: 1000px;
+    color: maroon;
+    font-size: 32px;
+    padding: 10px 10px 10px 0px;
+    margin-bottom: 0;
+    border-bottom: 1px solid green;
+}
+ 
+#menu{
+    margin:auto;
+    height: 50px;
+    width: 350px;
+    background-color: hsl(160, 78%, 34%);
+    overflow: hidden;
+    float:right;
+    font-size: 18px;
+  }
+
+
+#footer {
+    border-top: 1px solid green;
+    margin-top: 20px;
+    color: #336699;
+    padding-top: 10px;    
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+  }
+.lista{
+    width:80%;
+}
