@@ -3,9 +3,12 @@
 <head>
     <title>Ingreso</title>
     <link type="text/css" rel="stylesheet" href="css/estilologin.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a href="index.php">Principal</a>
+<div class="header">
+<a href="index.php" class="logo">APP WEB</a>
+</div>
 <?php
 include("connection.php");
  

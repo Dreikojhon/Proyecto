@@ -13,16 +13,15 @@
         include("connection.php");                    
         $result = mysqli_query($mysqli, "SELECT * FROM login");
     ?>                
-        <p>Bienvenido: <?php echo $_SESSION['name'] ?> ! <a href='logout.php'>Cerrar Sesion</a></p>
-        <a href="view.php">CRUD Publicaciones</a>
+        <p>Bienvenido: <?php echo $_SESSION['name'] ?></p> 
+        <a href="view.php">CRUD Publicaciones</a><a class="sesion" href='logout.php'>Cerrar Sesion</a>
     <?php    
     } else {
         echo "<p>Usted esta como invitado, Ingrese o regístrese</p>";
-        echo "<a href='login.php'>Ingreso</a><a href='register.php'>Registrar</a>";
+        echo "<a class='sesion' href='login.php'>Ingreso</a><a class='sesion' href='register.php'>Registrar</a>";
     }
     ?>
     </div>
     </div>
-
 </body>
 </html>

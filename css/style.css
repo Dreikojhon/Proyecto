@@ -1,5 +1,6 @@
 body {
     margin: 0 0;
+    font-family: 'Open Sans', sans-serif;
 }
 /*Cabecera y nombre de logo*/
 .header {
@@ -34,15 +35,23 @@ body {
     text-align: left;
     }
 }
+.header a.sesion{
+    float:right;
+    background-color:#3498db;
+    margin:0 5px;
+    color:whitesmoke;
+    font-weight: bold;
+}
 /*Css menu botones y estado*/
 .menu{
 float: right;
-width:30%;
+width:80%;
 }
 .menu p{
     font-style: italic;
-    text-align: left;
+    text-align: right;
 }
+
 
 
 
@@ -61,4 +70,54 @@ th {
   }
 .lista{
     width:80%;
+}
+
+/*TABLA DE MANTENIMIENTO*/
+.tablageneral #regtable{
+    width: 100%;
+    align-content: center;
+}
+#regtable thead tr{
+    height:35px;
+    background-color: #72a3ec;
+    padding: 0.5em;
+    margin: 0;
+}
+#regtable thead tr .titu{
+    height:35px;
+    background-color: #1bce39;
+    width: 12%;
+}
+#regtable thead tr .cont{
+    height:35px;
+    background-color: #1bce39;
+    width: 35%;
+}
+#regtable thead tr .fecha{
+    height:35px;
+    background-color: #1bce39;
+    width: 18%;
+}
+#regtable thead tr .tags{
+    height:35px;
+    background-color: #1bce39;
+    width: 12%;
+}
+#regtable thead tr .accs{
+    height:35px;
+    background-color: #1bce39;
+    width: 30%;
+}
+.tablageneral{
+    width: 95%;
+    background-color: rgb(191, 214, 214);
+    border-collapse:inherit;
+}   
+td, th {
+    border: 1px solid #a3a3a3;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even),table.list thead>tr {
+    background-color: #b4b4b4;
 }

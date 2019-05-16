@@ -61,11 +61,16 @@ while($res = mysqli_fetch_array($result))
 <html>
 <head>    
     <title>Edit Data</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
  
 <body>
-    <a href="index.php">Home</a> | <a href="view.php">View Products</a> | <a href="logout.php">Logout</a>
-    <br/><br/>
+<div class="header">
+<a href="index.php" class="logo">APP WEB</a>
+<div class="menu">
+    <a href="index.php">Principal</a><a href="view.php">Ver Publicaciones</a><a class="sesion" href="logout.php">Cerrar Sesion</a>
+</div>
+</div>
     
     <form name="form1" method="post" action="edit.php">
         <table border="0">

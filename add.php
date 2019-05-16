@@ -5,13 +5,14 @@ if(!isset($_SESSION['valid'])) {
     header('Location: login.php');
 }
 ?>
- 
 <html>
 <head>
-    <title>Añadir publicacion</title>
+    <title>Agregar publicacion</title>
+    
 </head>
  
 <body>
+
 <?php
 //including the database connection file
 include("connection.php");
@@ -50,6 +51,7 @@ if(isset($_POST['Submit'])) {
         
         //display success message
         echo "<font color='green'>Publicacion añadida satisfactoriamente.";
+        echo "<onClick=\"return confirm('Estás seguro de eliminar la publicacion?')\>";
         echo "<br/><a href='view.php'>Ver publicacion</a>";
     }
 }

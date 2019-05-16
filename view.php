@@ -15,33 +15,42 @@ $result = mysqli_query($mysqli, "SELECT id,titulo,contenido,DATE_FORMAT(fecha,'%
 
 ?>
  
-<html>
+ <html>
 <head>
-    <title>Pagina 1</title>
-    <link href="css/style.css" rel="stylesheet" >
+    <title>Pagina 2</title>
+    <link type="text/css" href="css/style.css" rel="stylesheet" >
 </head>
  
 <body>
-<a href="index.php">Principal</a> | <a href="add.html">Añadir nueva publicacion</a> | <a href="logout.php">Cerrar Sesion</a>
-<br/><br/>
-    
-<table for="lista">
-    <tr bgcolor='#CCCCCC'>
-        <td>Titulo</td>
-        <td>Contenido</td>
-        <td>Fecha</td>
-        <td>Tags</td>
-    </tr>
-    <?php
-    while($res = mysqli_fetch_array($result)) {        
-        echo "<tr>";
-        echo "<td>".$res['titulo']."</td>";
-        echo "<td>".$res['contenido']."</td>";
-        echo "<td>".$res['fecha']."</td>";
-        echo "<td>".$res['tags']."</td>";    
-        echo "<td><a href=\"edit.php?id=$res[id]\">Editar</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Estás seguro de eliminar la publicacion?')\">Eliminar</a></td>";        
-    }
-    ?>
-</table>    
+<div class="header">
+<a href="index.php" class="logo">APP WEB</a>
+<div class="menu">
+<p>Bienvenido: <?php echo $_SESSION['name'] ?></p> 
+<a href="index.php">Principal</a> <a href="add.html">Añadir nueva publicacion</a>  <a class="sesion" href="logout.php">Cerrar Sesion</a>
+</div>
+</div>
+<div class="tablageneral">
+    <table id="regtable">
+        <tr>
+            <th class="titu">Titulo</th>
+            <th class="cont">Contenido</th>
+            <th class="date">Fecha</th>
+            <th class="tags">Tags</th>
+            <th class="accs">Acciones</th>
+        </tr>
+        <tbody id="tablerows">
+        <?php
+        while($res = mysqli_fetch_array($result)) {        
+            echo "<tr>";
+            echo "<td>".$res['titulo']."</td>";
+            echo "<td>".$res['contenido']."</td>";
+            echo "<td>".$res['fecha']."</td>";
+            echo "<td>".$res['tags']."</td>";    
+            echo "<td><a href=\"edit.php?id=$res[id]\">Editar</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Estás seguro de eliminar la publicacion?')\">Eliminar</a></td>";        
+        }
+        ?>
+        </tbody>
+    </table>  
+</div>
 </body>
 </html>
