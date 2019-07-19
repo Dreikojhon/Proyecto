@@ -13,24 +13,23 @@
 include("connection.php");
  
 if(isset($_POST['submit'])) {
-    $user = mysqli_real_escape_string($mysqli, $_POST['username']);
-    $pass = mysqli_real_escape_string($mysqli, $_POST['password']);
- 
+    $user =  $_POST['username'];
+    $pass =  $_POST['password'];
+    dd($user);
+    //mysqli_real_escape_string($mysqli,
     if($user == "" || $pass == "") {
         echo "Debe rellenar los datos para ingresar.";
         echo "<br/>";
         echo "<a href='login.php'>Atras</a>";
     } else {
-        $result = mysqli_query($mysqli, "SELECT * FROM usuario WHERE username='$user' AND password=md5('$pass')")
+        $result = mysqli_query($mysqli, "SELECT * FROM usuario WHERE usuemail='$user' AND usuclave='$pass'")
         or die("No se pudo ejecutar el procedimiento.");
         
         $row = mysqli_fetch_assoc($result);
         
         if(is_array($row) && !empty($row)) {
-            $validuser = $row['username'];
+            $validuser = $row['usuemail'];
             $_SESSION['valid'] = $validuser;
-            $_SESSION['name'] = $row['name'];
-            $_SESSION['id'] = $row['id'];
         } else {
             echo "Usuario o Clave incorrecta";
             echo "<br/>";
